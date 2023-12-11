@@ -36,7 +36,7 @@ public class CovidTrackingDao {
 	
 	public CovidInfoDTO getDataForState(String stateCode) {
 		try {
-			return jdbcTemplate.queryForObject("SELECT * FROM covid_tracking WHERE state = :stateCode", new MapSqlParameterSource("stateCode", stateCode), new BeanPropertyRowMapper<CovidInfoDTO>(CovidInfoDTO.class));
+			return jdbcTemplate.queryForObject("SELECT * FROM covid_stats WHERE state = :stateCode", new MapSqlParameterSource("stateCode", stateCode), new BeanPropertyRowMapper<CovidInfoDTO>(CovidInfoDTO.class));
 		} catch (DataAccessException dae) {
 			return null;
 		}
